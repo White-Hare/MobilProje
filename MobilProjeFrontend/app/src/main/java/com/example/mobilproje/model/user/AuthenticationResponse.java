@@ -3,7 +3,7 @@ package com.example.mobilproje.model.user;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class LoginResponse {
+public class AuthenticationResponse {
 
     @SerializedName("id")
     @Expose(serialize = false)
@@ -19,7 +19,7 @@ public class LoginResponse {
     private final String token;
 
 
-    public LoginResponse(long id, String username, long profileId, String token) {
+    public AuthenticationResponse(long id, String username, long profileId, String token) {
         this.id = id;
         this.username = username;
         this.profileId = profileId;

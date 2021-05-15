@@ -8,7 +8,7 @@ namespace MobilProjeBackend.Models
 {
     public class Profile
     {
-        [Key]public int Id { get; set; }
+        [Key]public long Id { get; set; }
         public int TotalCorrectAnswers { get; set; }
         public int TotalWrongAnswers { get; set; }
         public int BestScore { get; set; }

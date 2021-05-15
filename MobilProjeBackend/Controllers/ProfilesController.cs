@@ -6,12 +6,13 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MobilProjeBackend.Data;
+using MobilProjeBackend.Helpers;
 using MobilProjeBackend.Models;
 
 namespace MobilProjeBackend.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]
+    [ApiController, Authorize]
     public class ProfilesController : ControllerBase
     {
         private readonly BasicItemsContext _context;

@@ -20,9 +20,9 @@ namespace MobilProjeBackend.Migrations
 
             modelBuilder.Entity("MobilProjeBackend.Models.Profile", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
+                        .HasColumnType("bigint")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("BestScore")

@@ -1,4 +1,4 @@
-package com.example.mobilproje.api;
+package com.example.mobilproje.api.interfaces;
 
 import com.example.mobilproje.model.Question;
 
@@ -6,6 +6,7 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.Path;
 
 public interface IQuestionApi {

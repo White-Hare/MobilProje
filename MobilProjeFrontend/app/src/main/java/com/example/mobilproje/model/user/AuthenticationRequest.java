@@ -3,7 +3,7 @@ package com.example.mobilproje.model.user;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class LoginRequest {
+public class AuthenticationRequest {
     @SerializedName("username")
     @Expose(deserialize = false)
     private String username;
@@ -11,7 +11,7 @@ public class LoginRequest {
     @Expose(deserialize = false)
     private String password;
 
-    public LoginRequest(String username, String password) {
+    public AuthenticationRequest(String username, String password) {
         this.username = username;
         this.password = password;
     }

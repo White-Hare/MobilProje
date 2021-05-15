@@ -20,24 +20,26 @@ namespace MobilProjeBackend.Services
         AuthenticateResponse Authenticate(AuthenticationRequest model);
         IEnumerable<MyUser> GetAll();
         MyUser GetById(int id);
-        Task<MyUser> RegisterUser(MyUser user);
+        Task<MyUser> RegisterUser(AuthenticationRequest request);
     }
 
     public class UserService : IUserService
     {
 
         private readonly AppSettings _appSettings;
-        private readonly UserContext _context;
+        private readonly UserContext _userContext;
+        private readonly BasicItemsContext _basicItemsContext;
 
-        public UserService(IOptions<AppSettings> appSettings, UserContext context)
+        public UserService(IOptions<AppSettings> appSettings, UserContext userContext, BasicItemsContext basicItemsContext)
         {
             _appSettings = appSettings.Value;
-            _context = context;
+            _userContext = userContext;
+            _basicItemsContext = basicItemsContext;
         }
 
         public AuthenticateResponse Authenticate(AuthenticationRequest model)
         {
-            var user = _context.MyUsers.SingleOrDefault(x => x.Username == model.Username && x.Password == model.Password);
+            var user = _userContext.MyUsers.SingleOrDefault(x => x.Username == model.Username && x.Password == model.Password);
             if (user == null) return null;
 
             var token = GenerateJwtToken(user);
@@ -46,18 +48,31 @@ namespace MobilProjeBackend.Services
 
         public IEnumerable<MyUser> GetAll()
         {
-            return _context.MyUsers;
+            return _userContext.MyUsers;
         }
 
         public MyUser GetById(int id)
         {
-            return _context.MyUsers.FirstOrDefault(x => x.Id == id);
+            return _userContext.MyUsers.FirstOrDefault(x => x.Id == id);
         }
 
-        public async Task<MyUser> RegisterUser (MyUser user)
+        public async Task<MyUser> RegisterUser (AuthenticationRequest request)
         {
-            await  _context.MyUsers.AddAsync(user);
-            await _context.SaveChangesAsync();
+            Profile profile = new Profile{BestScore = 0, TotalCorrectAnswers = 0, TotalWrongAnswers = 0};
+
+            await  _basicItemsContext.Profiles.AddAsync(profile);
+            await _basicItemsContext.SaveChangesAsync();
+
+            MyUser user = new MyUser
+            {
+                Username = request.Username,
+                Password = request.Password,
+                ProfileId = profile.Id,
+                Profile = profile,
+            };
+
+            await  _userContext.MyUsers.AddAsync(user);
+            await _userContext.SaveChangesAsync();
 
             return user;
         }

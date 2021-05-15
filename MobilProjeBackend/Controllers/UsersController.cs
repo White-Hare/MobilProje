@@ -31,11 +31,14 @@ namespace MobilProjeBackend.Controllers
         }
 
         [HttpPost("Register")]//Fix it
-        public async Task<ActionResult<MyUser>> Register(MyUser user)
+        public async Task<ActionResult<MyUser>> Register(AuthenticationRequest request)
         {
-            await _userService.RegisterUser(user);
+            var response = await _userService.RegisterUser(request);
 
-            return CreatedAtAction("GetById", new { id = user.Id }, user);
+            if (response == null)
+                return BadRequest(new {message = "Failed to create user"});
+
+            return Ok(response);
         }
 
         /*

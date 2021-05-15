@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         loginAdapter = new LoginAdapter(ApiManager.getInstance(), SessionManager.getInstance());
         loginAdapter.login("test", "test",  getApplicationContext());
 

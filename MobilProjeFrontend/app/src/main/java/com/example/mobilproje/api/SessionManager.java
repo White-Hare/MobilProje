@@ -30,6 +30,9 @@ public class SessionManager {
     }
 
     public String fetchAuthToken(){
+        if(preferences == null)
+            return null;
+
         return preferences.getString(USER_TOKEN, null);
     }
 }

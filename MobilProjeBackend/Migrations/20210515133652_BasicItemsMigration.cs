@@ -10,7 +10,7 @@ namespace MobilProjeBackend.Migrations
                 name: "Profiles",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     TotalCorrectAnswers = table.Column<int>(type: "int", nullable: false),
                     TotalWrongAnswers = table.Column<int>(type: "int", nullable: false),

@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 public class Profile {
     @SerializedName("id")
     @Expose
-    private int id;
+    private long id;
     @SerializedName("totalCorrectAnswers")
     @Expose
     private int totalCorrectAnswers;
@@ -17,18 +17,18 @@ public class Profile {
     @Expose
     private int bestScore;
 
-    public Profile(int id, int totalCorrectAnswers, int totalWrongAnswers, int bestScore) {
+    public Profile(long id, int totalCorrectAnswers, int totalWrongAnswers, int bestScore) {
         this.id = id;
         this.totalCorrectAnswers = totalCorrectAnswers;
         this.totalWrongAnswers = totalWrongAnswers;
         this.bestScore = bestScore;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

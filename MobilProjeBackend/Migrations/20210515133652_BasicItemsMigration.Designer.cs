@@ -9,7 +9,7 @@ using MobilProjeBackend.Data;
 namespace MobilProjeBackend.Migrations
 {
     [DbContext(typeof(BasicItemsContext))]
-    [Migration("20210515001920_BasicItemsMigration")]
+    [Migration("20210515133652_BasicItemsMigration")]
     partial class BasicItemsMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -22,9 +22,9 @@ namespace MobilProjeBackend.Migrations
 
             modelBuilder.Entity("MobilProjeBackend.Models.Profile", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
+                        .HasColumnType("bigint")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("BestScore")
