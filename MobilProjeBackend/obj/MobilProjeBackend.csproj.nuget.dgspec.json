@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\MeteARSLAN\\source\\repos\\MobilProjeBackend\\MobilProjeBackend.csproj": {}
+    "C:\\Users\\MeteARSLAN\\Desktop\\GitHub\\MobilProje\\MobilProjeBackend\\MobilProjeBackend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\MeteARSLAN\\source\\repos\\MobilProjeBackend\\MobilProjeBackend.csproj": {
+    "C:\\Users\\MeteARSLAN\\Desktop\\GitHub\\MobilProje\\MobilProjeBackend\\MobilProjeBackend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MeteARSLAN\\source\\repos\\MobilProjeBackend\\MobilProjeBackend.csproj",
+        "projectUniqueName": "C:\\Users\\MeteARSLAN\\Desktop\\GitHub\\MobilProje\\MobilProjeBackend\\MobilProjeBackend.csproj",
         "projectName": "MobilProjeBackend",
-        "projectPath": "C:\\Users\\MeteARSLAN\\source\\repos\\MobilProjeBackend\\MobilProjeBackend.csproj",
+        "projectPath": "C:\\Users\\MeteARSLAN\\Desktop\\GitHub\\MobilProje\\MobilProjeBackend\\MobilProjeBackend.csproj",
         "packagesPath": "C:\\Users\\MeteARSLAN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MeteARSLAN\\source\\repos\\MobilProjeBackend\\obj\\",
+        "outputPath": "C:\\Users\\MeteARSLAN\\Desktop\\GitHub\\MobilProje\\MobilProjeBackend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -43,6 +43,28 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[5.0.6, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.6, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[5.0.2, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[5.6.3, )"
@@ -66,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }

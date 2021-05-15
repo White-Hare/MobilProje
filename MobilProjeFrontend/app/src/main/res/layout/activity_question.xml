@@ -7,7 +7,7 @@
     tools:context=".ui.question.QuestionActivity">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/question_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="104dp"
@@ -18,14 +18,14 @@
         style="@style/TextAppearance.AppCompat.Title"/>
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/question_paragraph"
         android:layout_width="300dp"
         android:layout_height="200dp"
         android:layout_marginTop="120dp"
         android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. "
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/question_title" />
 
     <TableLayout
         android:layout_width="300dp"
@@ -33,7 +33,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/question_paragraph"
         android:stretchColumns="*"
         android:divider="@drawable/empty_tall_divider"
         android:showDividers="middle"
@@ -46,7 +46,7 @@
             >
 
             <Button
-                android:id="@+id/choiceA"
+                android:id="@+id/option_a"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:text="A) Ankara"
@@ -54,7 +54,7 @@
                 />
 
             <Button
-                android:id="@+id/choiceB"
+                android:id="@+id/option_b"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:text="B) Istanbul"
@@ -66,14 +66,14 @@
             android:layout_height="match_parent" >
 
             <Button
-                android:id="@+id/choiceC"
+                android:id="@+id/option_c"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:text="C) Izmir"
                 android:layout_marginHorizontal="15dp"/>
 
             <Button
-                android:id="@+id/choiceD"
+                android:id="@+id/option_d"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:text="D) Denizli"
@@ -83,7 +83,7 @@
     </TableLayout>
 
     <ImageButton
-        android:id="@+id/returnMainMenuButton"
+        android:id="@+id/return_main_menu_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
