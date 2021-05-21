@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
-        android:text="Logo"
+        android:text="@string/app_name"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -47,14 +47,33 @@
             android:id="@+id/profileButton"
             android:layout_width="200sp"
             android:layout_height="wrap_content"
-            android:text="Profil" />
+            android:text="Profil"
+            android:onClick="goProfileButtonOnClick"/>
 
         <Button
             android:id="@+id/settingsButton"
             android:layout_width="200sp"
             android:layout_height="wrap_content"
-            android:text="Ayarlar" />
+            android:text="Gündüz/Gece Moduna Geç"
+            android:onClick="switchThemeButtonOnClick"/>
 
     </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="#00000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/outline_logout_24"
+
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        android:onClick="logoutButtonOnClick"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

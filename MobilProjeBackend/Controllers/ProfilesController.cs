@@ -31,7 +31,7 @@ namespace MobilProjeBackend.Controllers
 
         // GET: api/Profiles/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Profile>> GetProfile(int id)
+        public async Task<ActionResult<Profile>> GetProfile(long id)
         {
             var profile = await _context.Profiles.FindAsync(id);
 

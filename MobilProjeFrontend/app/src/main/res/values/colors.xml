@@ -6,4 +6,6 @@
     <color name="light_blue">#FF4394E6</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="green">#FF00AA00</color>
+    <color name="red">#FFAA0000</color>
 </resources>

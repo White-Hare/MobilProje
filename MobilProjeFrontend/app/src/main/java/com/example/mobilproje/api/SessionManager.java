@@ -11,6 +11,7 @@ public class SessionManager {
 
     private SharedPreferences preferences;
     private final String USER_TOKEN = "user_token";
+    private MyUser user;
 
     private SessionManager(){ }
 
@@ -22,11 +23,14 @@ public class SessionManager {
     }
 
 
-    public void saveAuthToken(String token, Context context){
+    public void saveAuthToken(String token, MyUser user, Context context){
         preferences = context.getSharedPreferences(context.getString(R.string.app_name), Context.MODE_PRIVATE);
+
         SharedPreferences.Editor editor =preferences.edit();
         editor.putString(USER_TOKEN, token);
         editor.apply();
+
+        this.user = user;
     }
 
     public String fetchAuthToken(){
@@ -34,5 +38,10 @@ public class SessionManager {
             return null;
 
         return preferences.getString(USER_TOKEN, null);
+    }
+
+
+    public MyUser getUser() {
+        return user;
     }
 }

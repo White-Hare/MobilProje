@@ -2,7 +2,7 @@
 
 namespace MobilProjeBackend.Migrations
 {
-    public partial class BasicItemsMigration : Migration
+    public partial class BasicDataMigrtaion : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -9,8 +9,8 @@ using MobilProjeBackend.Data;
 namespace MobilProjeBackend.Migrations
 {
     [DbContext(typeof(BasicItemsContext))]
-    [Migration("20210515133652_BasicItemsMigration")]
-    partial class BasicItemsMigration
+    [Migration("20210521192659_BasicDataMigrtaion")]
+    partial class BasicDataMigrtaion
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

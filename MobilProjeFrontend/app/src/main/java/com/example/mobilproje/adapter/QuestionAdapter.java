@@ -4,6 +4,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.mobilproje.R;
 import com.example.mobilproje.api.ApiManager;
 import com.example.mobilproje.model.Question;
 
@@ -15,8 +16,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class QuestionAdapter {
-    private final ApiManager apiManager;
+public abstract class QuestionAdapter {
     private int currentQuestion;
     private final Random random;
 
@@ -27,8 +27,7 @@ public class QuestionAdapter {
 
     public QuestionAdapter(TextView title, TextView questionParagraph, Button[] buttons){
         currentQuestion = 1;
-        apiManager = ApiManager.getInstance();
-        
+
         this.title = title;
         this.questionParagraph = questionParagraph;
         this.buttons = buttons;
@@ -59,7 +58,7 @@ public class QuestionAdapter {
                     for(int i = 0; i< buttons.length; i++) {
                         int index = indicies.get(random.nextInt(indicies.size()));
                         buttons[index].setText(options[i]);
-                        buttons[index].setOnClickListener(createOnClickListener(i, answer));
+                        buttons[index].setOnClickListener(createOnClickListener(buttons[index], i, answer));
                         indicies.remove((Integer) index);
                     }
                 }
@@ -75,19 +74,8 @@ public class QuestionAdapter {
             }
         };
 
-        apiManager.getRandomQuestion(callback);
+        ApiManager.getInstance().getRandomQuestion(callback);
     }
 
-    private View.OnClickListener createOnClickListener(int buttonId, int answerId){
-        return v -> {
-            if(buttonId == answerId){
-                //Correct Answer
-            }
-            else{
-                //Wrong Answer
-            }
-            
-            setQuestion();
-        };
-    }
+    protected abstract View.OnClickListener createOnClickListener(Button button, int buttonId, int answerId);
 }
