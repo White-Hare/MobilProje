@@ -1,2 +1,2 @@
 # MobilProje
- 3. Grup
+ 2. Grup
