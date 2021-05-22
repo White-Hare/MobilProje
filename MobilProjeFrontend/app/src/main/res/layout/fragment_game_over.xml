@@ -8,7 +8,7 @@
     android:paddingRight="10dp"
     android:orientation="vertical"
     tools:context=".ui.question.GameOverFragment"
-    android:background="#33222222"
+    android:background="#FF888888"
     android:elevation="10dp"
     >
 
@@ -72,8 +72,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_below="@+id/tableLayout"
-                android:layout_marginHorizontal="30dp"
-                android:layout_weight="0.3"
+                android:layout_marginHorizontal="20dp"
+                android:layout_weight="0.5"
                 android:text="Yeniden Başla"
                 android:onClick="restartGameOnClickButton"/>
 
@@ -82,8 +82,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_below="@+id/tableLayout"
-                android:layout_marginHorizontal="30dp"
-                android:layout_weight="0.3"
+                android:layout_marginHorizontal="20dp"
+                android:layout_weight="0.5"
                 android:text="Ana Menüye Dön"
                 android:onClick="returnMainMenuButtonOnClick"/>
         </TableRow>
