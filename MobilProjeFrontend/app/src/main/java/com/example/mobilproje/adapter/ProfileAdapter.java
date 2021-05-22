@@ -32,11 +32,15 @@ public class ProfileAdapter {
         this.bestScoreView = bestScoreView;
     }
 
+    public ProfileAdapter(TextView bestScoreView){
+        this.bestScoreView = bestScoreView;
+    }
+
     public void setProfileLayout(){
         MyUser user = SessionManager.getInstance().getUser();
 
         if(user == null) {
-            System.out.println("fuck");
+            System.out.println("You haven't signed in");
             return;
         }
 
@@ -58,7 +62,7 @@ public class ProfileAdapter {
 
 
                     if(totalAnswers != 0)
-                        successView.setText("Başarı Oranı: %" + (correctAnswers / totalAnswers * 100.f));
+                        successView.setText("Başarı Oranı: %" + ((float)correctAnswers / totalAnswers * 100.f));
                     else
                         successView.setText("Başarı Oranı: %0" );
 
@@ -78,5 +82,70 @@ public class ProfileAdapter {
         };
 
         ApiManager.getInstance().getProfile(callback, user.getProfileId());
+    }
+
+    public void setGameOverLayout(int currentScore){
+        MyUser user = SessionManager.getInstance().getUser();
+
+        if(user == null) {
+            System.out.println("You haven't signed in");
+            return;
+        }
+
+        Callback<Profile> callback = new Callback<Profile>() {
+            @Override
+            public void onResponse(Call<Profile> call, Response<Profile> response) {
+                Profile profile;
+                if (response.isSuccessful()) {
+                    profile = response.body();
+
+                    if(currentScore > profile.getBestScore()) {
+                        profile.setBestScore(currentScore);
+                        profile.setTotalCorrectAnswers(profile.getTotalCorrectAnswers() + currentScore / 10);
+                        profile.setTotalWrongAnswers(profile.getTotalWrongAnswers() + 1);
+                        updateProfile(profile);
+                    }
+
+                    bestScoreView.setText("En İyi Puan: " + profile.getBestScore());
+                }
+                else
+                    bestScoreView.setText("En İyi Puan Bulunamadı");
+
+            }
+
+
+            @Override
+            public void onFailure(Call<Profile> call, Throwable t) {
+                String text = "\n\nFAILED: " + t.getCause() + " Stack Traces: ";
+                for(StackTraceElement s : t.getStackTrace())
+                    text += s.toString() + '\n';
+
+                System.out.println(text);
+            }
+        };
+
+        ApiManager.getInstance().getProfile(callback, user.getProfileId());
+    }
+
+    private void updateProfile(Profile profile){
+        Callback<Profile> callback = new Callback<Profile>() {
+            @Override
+            public void onResponse(Call<Profile> call, Response<Profile> response) {
+                if (response.isSuccessful()) {
+                }
+            }
+
+
+            @Override
+            public void onFailure(Call<Profile> call, Throwable t) {
+                String text = "\n\nFAILED: " + t.getCause() + " Stack Traces: ";
+                for(StackTraceElement s : t.getStackTrace())
+                    text += s.toString() + '\n';
+
+                System.out.println(text);
+            }
+        };
+
+        ApiManager.getInstance().updateProfile(callback, profile.getId(), profile);
     }
 }

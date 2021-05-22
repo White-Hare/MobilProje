@@ -1,5 +1,6 @@
 package com.example.mobilproje.ui.question;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,17 +8,16 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.mobilproje.R;
+import com.example.mobilproje.adapter.ProfileAdapter;
+import com.example.mobilproje.ui.main.MainActivity;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link GameOverFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class GameOverFragment extends Fragment {
 
-    private static final String ARG_CURRENT_SCORE = "current_score";
+    public static final String ARG_CURRENT_SCORE = "current_score";
 
     private int currentScore;
 
@@ -45,6 +45,13 @@ public class GameOverFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_game_over, container, false);
+        View v = inflater.inflate(R.layout.fragment_game_over, container, false);
+
+        ProfileAdapter adapter = new ProfileAdapter(v.findViewById(R.id.best_score_text));
+        adapter.setGameOverLayout(currentScore);
+
+        ((TextView)v.findViewById(R.id.score_text)).setText("Skorunuz: " + currentScore);
+
+        return v;
     }
 }

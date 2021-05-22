@@ -1,6 +1,8 @@
 package com.example.mobilproje.ui.question;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,13 +17,17 @@ import com.example.mobilproje.ui.main.MainActivity;
 
 public class QuestionActivity extends AppCompatActivity {
     private QuestionAdapter questionAdapter;
-    private boolean isWaiting = false;
 
+    private boolean isWaiting = false;
+    private int currentScore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
+
+
+        currentScore = 0;
 
         questionAdapter = new QuestionAdapter(
                 (TextView)findViewById(R.id.question_title),
@@ -45,6 +51,7 @@ public class QuestionActivity extends AppCompatActivity {
                     if(buttonId == answerId){
                         //Correct Answer
                         button.setBackgroundColor(getResources().getColor(R.color.green));
+                        currentScore += 10;
 
                     }
                     else{
@@ -70,16 +77,29 @@ public class QuestionActivity extends AppCompatActivity {
         questionAdapter.setQuestion();
     }
 
-    public void returnMainMenuButtonOnClick(View v){
-        Intent intent = new Intent(this, MainActivity.class);
+    private void gameOver(){
+        Bundle args = new Bundle();
+        args.putInt(GameOverFragment.ARG_CURRENT_SCORE, currentScore);
+
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+
+        GameOverFragment fragment = new GameOverFragment();
+        fragment.setArguments(args);
+        ft.replace(R.id.game_over_fragment, fragment);
+
+        ft.commit();
+
+        findViewById(R.id.game_over_fragment).setVisibility(View.VISIBLE);
+    }
+
+    public void restartGameOnClickButton(View v){
+        Intent intent = getIntent();
+        finish();
         startActivity(intent);
     }
 
-    private void gameOver(){
-
-    }
-
-    private void correctAnswer(){
-
+    public void returnMainMenuButtonOnClick(View v){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }

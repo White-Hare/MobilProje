@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import com.example.mobilproje.R;
 import com.example.mobilproje.adapter.ProfileAdapter;
-import com.example.mobilproje.ui.question.QuestionActivity;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -30,7 +29,7 @@ public class ProfileActivity extends AppCompatActivity {
         wrongAnswerView = findViewById(R.id.totalWrongAnswersText);
         totalAnswerView = findViewById(R.id.totalAnswersText);
         successView = findViewById(R.id.successRateText);
-        bestScoreView = findViewById(R.id.bestScoreText);
+        bestScoreView = findViewById(R.id.best_score_text);
 
 
         ProfileAdapter adapter = new ProfileAdapter(usernameView, correctAnswerView, wrongAnswerView, totalAnswerView, successView, bestScoreView);

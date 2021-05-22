@@ -28,56 +28,55 @@
         app:layout_constraintTop_toBottomOf="@+id/question_title" />
 
     <TableLayout
+        android:id="@+id/tableLayout2"
         android:layout_width="300dp"
         android:layout_height="200dp"
+        android:divider="@drawable/empty_tall_divider"
+        android:gravity="center"
+        android:showDividers="middle"
+        android:stretchColumns="*"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/question_paragraph"
-        android:stretchColumns="*"
-        android:divider="@drawable/empty_tall_divider"
-        android:showDividers="middle"
-        android:gravity="center">
+        app:layout_constraintTop_toBottomOf="@+id/question_paragraph">
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
-            >
+            android:gravity="center">
 
             <Button
                 android:id="@+id/option_a"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:text="A) Ankara"
                 android:layout_marginHorizontal="15dp"
-                />
+                android:text="A) Ankara" />
 
             <Button
                 android:id="@+id/option_b"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:text="B) Istanbul"
-                android:layout_marginHorizontal="15dp"/>
+                android:layout_marginHorizontal="15dp"
+                android:text="B) Istanbul" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
             <Button
                 android:id="@+id/option_c"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:text="C) Izmir"
-                android:layout_marginHorizontal="15dp"/>
+                android:layout_marginHorizontal="15dp"
+                android:text="C) Izmir" />
 
             <Button
                 android:id="@+id/option_d"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:text="D) Denizli"
-                android:layout_marginHorizontal="15dp"/>
+                android:layout_marginHorizontal="15dp"
+                android:text="D) Denizli" />
         </TableRow>
 
     </TableLayout>
@@ -98,4 +97,17 @@
         android:scaleType="fitCenter"
         android:adjustViewBounds="true"
         />
+
+    <fragment
+        android:id="@+id/game_over_fragment"
+        android:name="com.example.mobilproje.BlankFragment"
+        android:layout_width="379dp"
+        android:layout_height="316dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.421"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.561" />
 </androidx.constraintlayout.widget.ConstraintLayout>
